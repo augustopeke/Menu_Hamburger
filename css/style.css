@@ -1,0 +1,83 @@
+:root {
+    --primary-color: rgba(213, 214, 116, 0.75);
+    --overlay-color: rgba(131, 133, 27, 0.75);
+    --menu-speed: 0.75s;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.4;
+}
+
+.container {
+    max-width: 960px;
+    margin: auto;
+    overflow: hidden;
+    padding: 0 3rem;
+}
+
+.showcase {
+    background-color: var(--primary-color);
+    color: #fff;
+    /* o background irá preencher toda a altuura da viewport */
+    height: 100vh;
+    /* para a imagem de fundo ser absolute ao relative */
+    position: relative;
+}
+
+.showcase:before {
+    content:'';
+    background:url(../img/paisagem.jpg) no-repeat center center/cover;
+    /* a imagem fica absoluta ao background */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* para a imagem aparecer o height teve de ter 100% do height do background anterior */
+    height: 100%;
+    /* a imagem está por cima do conteúdo, então para fazer com que ela vá para trás, usamos o z-index */
+    z-index:-1;
+}
+
+.showcase .showcase-inner {
+    /* irá jogar todo o conteúdo para a mesma linha */
+    display: flex;
+    /* irá colocá-los em coluna */
+    flex-direction: column;
+    /* alinhará os itens no centro */
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 100%;
+}
+
+.showcase h1 {
+    font-size: 4rem;
+}
+
+.showcase p {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.btn {
+    display: inline-block;
+    border: 1px solid var(--overlay-color);
+    border-radius: 0 10px;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    margin-top: 1rem;
+    text-decoration: none;
+    transition: opacity 1s ease-in;
+}
+
+.btn:hover {
+    opacity: 0.6;
+}
